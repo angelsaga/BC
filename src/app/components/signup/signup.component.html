@@ -1,0 +1,110 @@
+<div class="ui-g-12">
+  <form [formGroup]="loginForm">
+    <div class="ui-g-9">
+        <div class="ui-g-12 parent">
+            <i class="fa fa-balance-scale fa-5x"></i>
+        </div>
+        <div class="ui-g-12 parent">LOGO and TITLE</div>
+    </div>
+    <div class="ui-g-3">
+      <div class="ui-g-12 input">
+        <mat-form-field color='accent'>
+          <input matInput placeholder="EMAIL" 
+            [(ngModel)]="username" 
+            formControlName="username">
+          <button mat-button *ngIf="username" 
+            matSuffix mat-icon-button aria-label="Clear" 
+            (click)="username=''">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+          <mat-error 
+          *ngIf="loginForm.controls.username.invalid" >
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
+        <i class="fa fa-cog fa-spin fa-fw"
+            (click)="isRestMode()"        
+            matTooltip="Reset password">
+          </i>
+      </div>
+      <div class="ui-g-12 input">
+        <mat-form-field color='accent'>
+          <input type="password" matInput [placeholder]="placeholder_passwd" formControlName="password" [(ngModel)]="password">
+          <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>         
+            <mat-error *ngIf="loginForm.controls.password.invalid
+                                && loginForm.controls.password.touched">
+              Please enter a valid password, at leaset 8 charactors
+            </mat-error>    
+
+        </mat-form-field>
+      </div>
+      <div class="ui-g-12 input" *ngIf="resetmode" [tdToggle]="!resetmode">
+          <mat-form-field color='accent'>
+            <input type="password" matInput placeholder="VERIFICATION CODE" formControlName="verifycode" [(ngModel)]="verifycode">
+            <button mat-button *ngIf="verifycode" matSuffix mat-icon-button aria-label="Clear" (click)="verifycode=''">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>         
+              <mat-error *ngIf="loginForm.controls.verifycode.invalid
+                                  && loginForm.controls.verifycode.touched">
+                Please enter a verification code, you can find it in your mail box
+              </mat-error>    
+  
+          </mat-form-field>
+        </div>
+    </div>
+  </form>
+</div>
+<div class="ui-g-12 ui-g-nopad" *ngIf="! resetmode" [tdToggle]="resetmode">
+  <div class="ui-g-9"></div>
+  <div class="ui-g-3">
+    <div class="ui-g-12  ui-g-nopad">
+      <div class="ui-g-3  ui-g-nopad">
+        <button mat-button color="primary" [disabled]="loginForm.controls.username.invalid || loginForm.controls.password.invalid"
+          (click)="login(loginForm.value)">
+          LOGIN
+          <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+        </button>
+      </div>
+      <div class="ui-g-3  ui-g-nopad">
+        <button mat-button color="accent" [disabled]="loginForm.controls.username.invalid || loginForm.controls.password.invalid"
+          (click)="signup(loginForm.value)">
+          SIGNUP
+          <i *ngIf="signing" class="fa fa-spinner fa-spin fa-fw"></i>
+        </button>
+      </div>      
+    </div>
+  </div> 
+</div>
+<div class="ui-g-12 ui-g-nopad" *ngIf="resetmode" [tdToggle]="!resetmode">
+    <div class="ui-g-9"></div>
+    <div class="ui-g-3">
+      <div class="ui-g-12  ui-g-nopad">        
+        <div class="ui-g-3  ui-g-nopad">
+          <button mat-button color="accent" [disabled]="loginForm.controls.username.invalid || loginForm.controls.verifycode.invalid || loginForm.controls.password.invalid"
+            (click)="login(loginForm.value)">
+            RESET
+            <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+          </button>
+        </div>
+        <div class="ui-g-3  ui-g-nopad">
+            <button mat-button color="primary" [disabled]="loginForm.controls.username.invalid"
+              (click)="sendcode(loginForm.value)">
+              SEND CODE
+              <i *ngIf="signing" class="fa fa-spinner fa-spin fa-fw"></i>
+            </button>
+          </div>
+      </div>
+    </div> 
+  </div> 
+<div class="ui-g-12 ui-g-nopad">
+  <div class="ui-g-9"></div>
+  <div class="ui-g-2 message parent">
+      <!-- <mat-progress-bar color="accent" *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
+      <mat-error *ngIf="toastService.login_msg">      
+        {{ toastService.login_msg }}
+      </mat-error>    
+  </div>
+  <div class="ui-g-1"></div>
+</div>

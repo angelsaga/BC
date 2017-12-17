@@ -1,0 +1,29 @@
+mat-form-field.mat-form-field {
+    font-size: 0.5rem;
+  }
+
+  .mat-button[disabled][disabled]{
+      color: #8a8888;
+  }
+
+  .message{
+    font-size: 0.3rem;
+  }
+
+  .mat-progress-bar{
+      height: 2px;
+  }
+  .parent{    
+    
+     margin: 0 auto;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     //resize: both;
+     //overflow: auto;
+ }
+
+.welcome{
+
+}
+ 

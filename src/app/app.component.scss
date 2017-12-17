@@ -1,0 +1,112 @@
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+
+
+.pa1ge-home {
+    background-image: url("http://c.hiphotos.baidu.com/image/pic/item/500fd9f9d72a60593731e1d02134349b023bbad2.jpg");
+    background-position: center center;
+    height: 100%;
+    background-size: cover;
+} 
+
+.mat-button-active{
+    background: rgba(224, 147, 46, 0.3);
+}
+
+.header-animate {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 0 !important;
+}
+
+.header {
+    transition: all 0.2s linear;
+    padding: 40px 0;
+}
+
+.sticky-header {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+}
+
+.page_1{
+    height: 90vh;
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513014633163&di=fe6ceab4f3bf3441efccd72d0e639964&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fd1160924ab18972b5bfa7cd1eecd7b899f510aec.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+.page_11{
+    height: 40vh;    
+}
+
+
+
+.page_2{
+    height: 80vh;
+    //overflow: auto;
+    //background: rgba(231, 141, 51, 0.5);
+    background: rgba(163, 111, 59, 0.5);
+}
+
+.page_3{
+    height: 20vh;
+    //overflow: auto;
+    background: rgba(15, 15, 15, 0.8);
+}
+
+.input1{
+    height: 6vh;
+    font-size: 0.6rem;
+}
+
+
+.header_font {
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    //text-transform: uppercase;
+    //text-decoration: none;
+}
+
+
+
+.header_hover_font:hover {
+    color: #F88A2F;
+}
+
+
+
+.vertical-align-content > *
+{
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+}
+.align-content
+{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.parent{    
+   
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //resize: both;
+    //overflow: auto;
+}
+
+.photo_list1{
+    width : 20vw;
+    height : 20vh;
+}
+
+.slash{
+    color : rgb(240, 93, 93);
+}
+

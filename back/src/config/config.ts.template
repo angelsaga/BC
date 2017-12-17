@@ -1,0 +1,23 @@
+declare const Buffer;
+export const secret_token = new Buffer('xxxx', 'base64');
+export const token_expiration = 60*60*24*7;
+
+export const db_url = 'localhost';
+export const db_user = 'xxxx';
+export const db_passwd = 'xxxx';
+export const db_port = 'xxxx';
+export const db_name = 'xxxx';
+
+export const mail_service = 'xxxx';
+export const mail_user = 'xxxx';
+export const mail_passwd = 'xxxx';
+
+
+export const app_secret = '';
+
+export class AppConfig {
+
+    public static getBaseUrl() {
+        return "http://1xxxx";
+    }
+} 

@@ -1,0 +1,44 @@
+<div class="ui-g-12">
+
+    <div class="ui-g-4"></div>
+    <div class="ui-g-3 vertical-align-content align-content">
+        <div class="show_border">
+            <div class="align-content">
+                {{ total }}
+            </div>              
+        </div>        
+    </div>
+    <div class="ui-g-2">
+        <form [formGroup]="subscribeForm">           
+            <mat-form-field color='accent'>
+              <input matInput placeholder="subscribe" 
+                [(ngModel)]="subscribe" 
+                formControlName="subscribe">
+              <button mat-button *ngIf="subscribe" 
+                matSuffix mat-icon-button aria-label="Clear" 
+                (click)="subscribe=''">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              <mat-error 
+              *ngIf="subscribeForm.controls.subscribe.invalid" >
+                Please enter a valid number
+              </mat-error>
+            </mat-form-field>
+        </form>
+          <button mat-button color="primary" 
+          [disabled]="subscribeForm.controls.subscribe.invalid"
+          (click)="submit()">
+            SUBMIT
+            <i *ngIf="submiting" class="fa fa-spinner fa-spin fa-fw"></i>
+          </button>
+    </div>
+    <div class="ui-g-2 vertical-align-content align-content">
+        <div class="div_height">
+            <div class="align-content">
+                My Coin: <a class="my_coin"> {{ my_coin }} </a>
+            </div>              
+        </div>        
+    </div>
+    
+
+</div>
