@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
       'password': ['', [Validators.required, Validators.minLength(8)]],
       'verifycode': ['', [Validators.required]]
     });
-
+    
     storage.get('username').then(username => {
       if(username){
         this.username = username;
@@ -92,9 +92,20 @@ export class SignupComponent implements OnInit {
     }    
   }
 
+  onPasswordFocus(){
+    this.placeholder_passwd = this.placeholder_passwd 
+            + "(at leaset 8 charactors)";
+  }
+
+  onPasswordblur(){
+    this.placeholder_passwd = this.resetmode 
+    ? "NEW PASSWORD"   : "PASSWORD";
+  }
+
   isRestMode(){
     this.resetmode = ! this.resetmode;
-    this.placeholder_passwd = this.resetmode ? "NEW PASSWORD" : "PASSWORD";
+    this.placeholder_passwd = this.resetmode 
+      ? "NEW PASSWORD"   : "PASSWORD";
   }
 
 
