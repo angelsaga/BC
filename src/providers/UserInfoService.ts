@@ -194,6 +194,21 @@ export class UserInfoService {
     return promise;
   }
 
+  getTotalCoinWithoutToken() {
+    var promise = new Promise((resolve, reject) => {
+      this.http.get(this.COIN_TOTAL_URL)
+      .map(res => res.json())
+      .subscribe(
+      data => {
+          resolve(data);          
+        },
+      err => {
+        reject(err);
+      })
+    })
+    return promise;
+  }
+
 
 
 }

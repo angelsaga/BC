@@ -18,7 +18,18 @@ export class IndexRoute extends BaseRoute {
   }
 
   public static create(router: Router) {
-    router.use(jwt({ secret: secret_token }).unless({ path: ['/user/register', '/user/login', '/user/sendvcode', '', '/', '/test'] }));
+    router.use(jwt({ secret: secret_token })
+      .unless({ path: 
+          [
+            '/user/register', 
+            '/user/login', 
+            '/user/sendvcode', 
+            '', 
+            '/', 
+            '/test',
+            '/coin/total'
+          ] 
+        }));
 
     router.use((err, req, res, next) => {
       if (err) {

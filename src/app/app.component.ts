@@ -6,6 +6,7 @@ import {
   TdJelloAnimation,
   TdPulseAnimation,
 } from '@covalent/core'
+import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
 
 import {FormControl, Validators} from '@angular/forms';
 import { JwtHelper } from "angular2-jwt";
@@ -33,6 +34,9 @@ export class AppComponent {
   passwd = '';
   is_login = '';
   photo_list = [];
+  total = 0;
+  total_rate = 0;
+  interval = 10000;
 
   FormControl = new FormControl('', [
     Validators.required,
@@ -50,6 +54,13 @@ export class AppComponent {
     private storage: Storage,
     private jwtHelper: JwtHelper,
   ){
+    this.getTotalCoinWithoutToken();
+    IntervalObservable
+      .create(this.interval)
+      .subscribe(() => {
+        this.getTotalCoinWithoutToken();
+      });
+
     this.photo_list = [{
       photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
       photo_des : "Description Description Description Description Description Description Description Description"
@@ -123,7 +134,16 @@ export class AppComponent {
     this.show_sub =! this.show_sub;
   }
 
-
+  getTotalCoinWithoutToken(){
+    this.userInfoService.getTotalCoinWithoutToken().then((result) =>
+    {
+      if('total' in result){
+        this.total = result['total'];
+        this.total_rate = this.total / 100000000;
+      }
+      
+    })
+  }
 
 
 }

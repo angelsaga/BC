@@ -3,10 +3,19 @@
   <div class="ui-g sticky-header header" [class.header-animate]="isAnimate">
     <div class="ui-g-2">
     </div>
-    <div class="ui-g-7">
+    <div class="ui-g-2">
       Trade Mark
     </div>
-
+    <div class="ui-g-4">
+            <mat-progress-bar
+            class=""
+            color="accent"
+            mode="Determinate"
+            [value]="total_rate"
+            bufferValue="0"> </mat-progress-bar>
+        {{ total }}   /  10000000000
+    </div>  
+    <div class="ui-g-1"></div>
     <ng-container *ngIf="!is_login">      
       <div class="ui-g-3 header_hover_font" *ngIf="is_login == false">
           <button mat-button color="" 
