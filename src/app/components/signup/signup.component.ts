@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userInfoService: UserInfoService,
-    private  toastService: ToastService,
+    public  toastService: ToastService,
     private storage: Storage,
     private _loadingService: TdLoadingService
   ) { 
