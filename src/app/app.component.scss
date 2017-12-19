@@ -110,3 +110,15 @@
     color : rgb(240, 93, 93);
 }
 
+.progress_coin{
+    color : rgb(173, 171, 171) !important;
+    font-size: 0.3rem !important;
+}
+
+.mat-progress-bar{
+    height: 10px;
+    border-radius: 5px;
+    //filter: blur(10px);
+    opacity: 0.76;
+    //background-color: #ffffff;
+}
