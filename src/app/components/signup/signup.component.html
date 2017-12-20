@@ -1,12 +1,12 @@
 <div class="ui-g-12">
   <form [formGroup]="loginForm">
-    <div class="ui-g-9">
-        <div class="ui-g-12 parent">
+    <div class="ui-g-8 ui-sm-2">
+        <!-- <div class="ui-g-12 parent">
             <i class="fa fa-balance-scale fa-5x"></i>
         </div>
-        <div class="ui-g-12 parent">LOGO and TITLE</div>
+        <div class="ui-g-12 parent">LOGO and TITLE</div> -->
     </div>
-    <div class="ui-g-3">
+    <div class="ui-g-4 ui-sm-8">
       <div class="ui-g-12 input">
         <mat-form-field color='accent'>
           <input matInput placeholder="EMAIL" 
@@ -62,17 +62,17 @@
   </form>
 </div>
 <div class="ui-g-12 ui-g-nopad" *ngIf="! resetmode" [tdToggle]="resetmode">
-  <div class="ui-g-9"></div>
-  <div class="ui-g-3">
+  <div class="ui-g-8"></div>
+  <div class="ui-g-4 parent">
     <div class="ui-g-12  ui-g-nopad">
-      <div class="ui-g-3  ui-g-nopad">
+      <div class="ui-g-3  ui-sm-12 ui-g-nopad">
         <button mat-button color="primary" [disabled]="loginForm.controls.username.invalid || loginForm.controls.password.invalid"
           (click)="login(loginForm.value)">
           LOGIN
           <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
         </button>
       </div>
-      <div class="ui-g-3  ui-g-nopad">
+      <div class="ui-g-3  ui-sm-12 ui-g-nopad">
         <button mat-button color="accent" [disabled]="loginForm.controls.username.invalid || loginForm.controls.password.invalid"
           (click)="signup(loginForm.value)">
           SIGNUP
@@ -83,17 +83,17 @@
   </div> 
 </div>
 <div class="ui-g-12 ui-g-nopad" *ngIf="resetmode" [tdToggle]="!resetmode">
-    <div class="ui-g-9"></div>
-    <div class="ui-g-3">
+    <div class="ui-g-8"></div>
+    <div class="ui-g-4 parent">
       <div class="ui-g-12  ui-g-nopad">        
-        <div class="ui-g-3  ui-g-nopad">
+        <div class="ui-g-3  ui-sm-12 ui-g-nopad">
           <button mat-button color="accent" [disabled]="loginForm.controls.username.invalid || loginForm.controls.verifycode.invalid || loginForm.controls.password.invalid"
             (click)="login(loginForm.value)">
             RESET
             <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
           </button>
         </div>
-        <div class="ui-g-3  ui-g-nopad">
+        <div class="ui-g-3  ui-sm-12 ui-g-nopad">
             <button mat-button color="primary" [disabled]="loginForm.controls.username.invalid"
               (click)="sendcode(loginForm.value)">
               SEND CODE

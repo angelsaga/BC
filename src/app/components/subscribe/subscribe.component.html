@@ -1,14 +1,14 @@
 <div class="ui-g-12">
 
-    <div class="ui-g-4"></div>
-    <div class="ui-g-3 vertical-align-content align-content">
-        <!-- <div class="show_border">
+    <div class="ui-g-6 ui-sm-1"></div>
+    <!-- <div class="ui-g-3 vertical-align-content align-content">
+        <div class="show_border">
             <div class="align-content">
                 {{ total }}
             </div>              
-        </div>    -->     
-    </div>
-    <div class="ui-g-2">
+        </div>        
+    </div> -->
+    <div class="ui-g-3 ui-sm-7">
         <form [formGroup]="subscribeForm">           
             <mat-form-field color='accent'>
               <input matInput placeholder="subscribe" 
@@ -32,7 +32,7 @@
             <i *ngIf="submiting" class="fa fa-spinner fa-spin fa-fw"></i>
           </button>
     </div>
-    <div class="ui-g-2 vertical-align-content align-content">
+    <div class="ui-g-3 ui-sm-4 vertical-align-content align-content">
         <div class="div_height">
             <div class="align-content">
                 My Coin: <a class="my_coin"> {{ my_coin }} </a>

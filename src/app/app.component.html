@@ -1,8 +1,7 @@
 <div class="page-home header_font">
 
     <div class="ui-g sticky-header header" [class.header-animate]="isAnimate">
-        <div class="ui-g-2">
-        </div>
+        <div class="ui-g-2"></div>
         <div class="ui-g-2">
         Trade Mark
         </div>
@@ -15,7 +14,10 @@
                         [value]="total_rate"
                         bufferValue="0"> </mat-progress-bar>
                 </div>
-                <div class="ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-g-nopad parent">
+                    {{ total | number }} 
+                </div>
+                <!-- <div class="ui-g-12 ui-g-nopad">
                     <div class="ui-g-1 ui-g-nopad progress_coin">
                             {{ total | number }} 
                     </div>
@@ -24,43 +26,45 @@
                     <div class="ui-g-2 ui-g-nopad progress_coin">
                             {{ total_all | number }} 
                     </div>
-                </div>
-        </div>  
-        <div class="ui-g-1"></div>
+                </div> -->
+        </div>        
         <ng-container *ngIf="!is_login">      
-        <div class="ui-g-3 header_hover_font" *ngIf="is_login == false">
-            <button mat-button color="" 
-                [ngClass]="{'mat-button-active' : show}" 
-                (click)="showSignUp()">
-                SIGN IN <a class="slash">/</a> UP
-            </button>        
-        </div>
-        <div class="ui-g-12" *ngIf="show" [tdToggle]="! show">
-            <app-signup (closeevent)="isLogin($event)"></app-signup>
-        </div>
+            <div class="ui-g-4 header_hover_font" *ngIf="is_login == false">
+                <button mat-button color="" 
+                    [ngClass]="{'mat-button-active' : show}" 
+                    (click)="showSignUp()">
+                    SIGN IN <a class="slash">/</a> UP
+                </button>        
+            </div>
+            <div class="ui-g-12" *ngIf="show" [tdToggle]="! show">
+                <app-signup (closeevent)="isLogin($event)"></app-signup>
+            </div>
         </ng-container>
 
         <ng-container *ngIf="is_login">
-        <div class="ui-g-12 ui-g-nopad">
-            <div class="ui-g-10"></div>
-            <div class="ui-g-2  ui-g-nopad">
-                <div class="ui-g-12 ui-g-nopad">
-                    Hello, {{ is_login }} 
-                </div>
-                <div class="ui-g-12 ui-g-nopad">                   
-                <button mat-button color="accent" [ngClass]="{'mat-button-active' : show_sub}" (click)="showSubscribe()">
-                    subscribe
-                </button>
-                <button mat-button color="accent" (click)="logout()">
-                logout
-                </button>
+            <div class="ui-g-4 ui-g-nopad">
+                <div class="ui-g-1 ui-sm-2"></div>
+                <div class="ui-g-11  ui-sm-10 ui-g-nopad">
+                    <div class="ui-g-12  ui-sm-offset-12 ui-g-nopad">
+                        Hello, {{ is_login }} 
+                    </div>
+                    <div class="ui-g-3 ui-sm-12 ui-g-nopad">                   
+                        <button mat-button color="accent" [ngClass]="{'mat-button-active' : show_sub}" (click)="showSubscribe()">
+                            subscribe
+                        </button>
+                    </div>
+                    <div class="ui-g-6 ui-sm-12 ui-g-nopad"> 
+                        <button mat-button color="accent" (click)="logout()">
+                        logout
+                        </button>
+                    </div>
+                </div>    
             </div>
-            </div>    
-        </div>
-        <div class="ui-g-12" *ngIf="show_sub" [tdToggle]="! show_sub">
-            <app-subscribe [is_show]="show_sub" [is_login]="is_login"></app-subscribe>
-        </div>
+            <div class="ui-g-12" *ngIf="show_sub" [tdToggle]="! show_sub">
+                <app-subscribe [is_show]="show_sub" [is_login]="is_login"></app-subscribe>
+            </div>
         </ng-container>
+        <div class="ui-g-2"></div>
     </div>
 
     <div class="ui-g-12  page_1">
@@ -74,9 +78,9 @@
                         <i class="fa fa-balance-scale fa-5x"></i>
                     </div>
                     <div class="ui-g-12 parent">LOGO and TITLE</div>
-                    <div class="ui-g-12 parent">
-                        <div class="ui-g-6 parent">RESOURCE1</div>
-                        <div class="ui-g-6 parent">RESOURCE2</div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-6 ui-sm-12 parent">RESOURCE1</div>
+                        <div class="ui-g-6 ui-sm-12 parent">RESOURCE2</div>
                     </div>
                 </div>   
                 <div class="ui-g-4"></div>            
@@ -95,7 +99,7 @@
             </div>
             <div class="ui-g-12">
                 <ng-container *ngFor="let i of photo_list">
-                    <div class="ui-g-4" >
+                    <div class="ui-g-4 ui-sm-12" >
                         <div class="ui-g-12  parent">
                             <img [src]="i.photo_url" />
                         </div>
@@ -114,22 +118,31 @@
         <div class="ui-g-2"></div>
         <div class="ui-g-8">
             <div class="ui-g-12 parent">LOGO and TITLE</div>
-            <div class="ui-g-12 parent">
-                <div class="ui-g-3 parent">
+            <div class="ui-g-12">
+                <div class="ui-g-3 ui-sm-6 parent">
                     <i class="fa fa-balance-scale fa-3x"></i>
                 </div>
-                <div class="ui-g-3 parent">
+                <div class="ui-g-3 ui-sm-6 parent">
                     <i class="fa fa-balance-scale fa-3x"></i>
                 </div>
-                <div class="ui-g-3 parent">
+                <div class="ui-g-3 ui-sm-6 parent">
                     <i class="fa fa-balance-scale fa-3x"></i>
                 </div>
-                <div class="ui-g-3 parent">
+                <div class="ui-g-3 ui-sm-6 parent">
+                    <i class="fa fa-balance-scale fa-3x"></i>
+                </div> 
+                <div class="ui-g-3 ui-sm-6 parent">
                     <i class="fa fa-balance-scale fa-3x"></i>
                 </div>
-                <div class="ui-g-3 parent">
+                <div class="ui-g-3 ui-sm-6 parent">
                     <i class="fa fa-balance-scale fa-3x"></i>
                 </div>
+                <div class="ui-g-3 ui-sm-6 parent">
+                    <i class="fa fa-balance-scale fa-3x"></i>
+                </div>
+                <div class="ui-g-3 ui-sm-6 parent">
+                    <i class="fa fa-balance-scale fa-3x"></i>
+                </div>                 
             </div>
         </div>
         <div class="ui-g-2"></div>
