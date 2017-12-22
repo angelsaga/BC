@@ -1,12 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import {
-  TdBounceAnimation,
-  TdFlashAnimation,
-  TdHeadshakeAnimation,
-  TdJelloAnimation,
-  TdPulseAnimation,
-} from '@covalent/core'
-import { IntervalObservable } from 'rxjs/observable/IntervalObservable';
+
 
 import {FormControl, Validators} from '@angular/forms';
 import { JwtHelper } from "angular2-jwt";
@@ -15,10 +8,7 @@ import { Storage } from "@ionic/storage";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [
-    TdBounceAnimation()
-  ]
+  styleUrls: ['./app.component.scss']  
 })
 
 
@@ -33,11 +23,8 @@ export class AppComponent {
   credid = '';
   passwd = '';
   is_login = '';
-  photo_list = [];
-  total = 0;
-  total_rate = 0;
-  total_all = 10000000000;
-  interval = 10000;
+ 
+
 
   FormControl = new FormControl('', [
     Validators.required,
@@ -55,32 +42,9 @@ export class AppComponent {
     private storage: Storage,
     private jwtHelper: JwtHelper,
   ){
-    this.getTotalCoinWithoutToken();
-    IntervalObservable
-      .create(this.interval)
-      .subscribe(() => {
-        this.getTotalCoinWithoutToken();
-      });
+    
 
-    this.photo_list = [{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },{
-      photo_url : "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3101860224,2352777645&fm=173&s=C23014C7000912EE141CBDA403007013&w=218&h=146&img.JPEG",
-      photo_des : "Description Description Description Description"
-    },]
+    
   }
 
   ngOnInit() {
@@ -135,16 +99,7 @@ export class AppComponent {
     this.show_sub =! this.show_sub;
   }
 
-  getTotalCoinWithoutToken(){
-    this.userInfoService.getTotalCoinWithoutToken().then((result) =>
-    {
-      if('total' in result){
-        this.total = result['total'];
-        this.total_rate = this.total / this.total_all * 100;
-      }
-      
-    })
-  }
+  
 
 
 }

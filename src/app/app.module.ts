@@ -8,7 +8,6 @@ import { CovalentCommonModule,
   CovalentMessageModule,
   CovalentChipsModule,
   CovalentLoadingModule   } from '@covalent/core';
-import { InputTextModule, ButtonModule, DataTableModule, DialogModule }  from 'primeng/primeng';
 import { SignupComponent } from './components/signup/signup.component';
 /* import {MatInputModule, MatRadioModule, 
   MatButtonModule, MatIconModule} from '@angular/material'; */
@@ -56,16 +55,26 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ToastService } from "../providers/ToastService";
 import { JwtHelper } from "angular2-jwt";
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { Page1Component } from './pages/page1/page1.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FootComponent } from './pages/foot/foot.component';
+import { NavComponent } from './pages/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    Page1Component,
+    HomeComponent,
+    FootComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     //InputTextModule, ButtonModule, DataTableModule, DialogModule,
 
     //MatInputModule,MatRadioModule,MatButtonModule,MatIconModule,

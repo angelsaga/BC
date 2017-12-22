@@ -1,0 +1,21 @@
+<div [style.height.vh]="10" fxLayoutAlign="center center">
+  LOGO and TITLE
+</div>
+
+<div fxLayout='row wrap'>
+  <ng-container *ngFor="let i of photo_list">
+    <div fxFlex="33" fxFlex.lt-md="100">
+      <div fxLayout.lt-md="row">
+        <div>
+          <img [src]="i.photo_url" 
+            style='width:80%;' 
+            border="0" 
+            alt="Null" />
+        </div>
+        <div class="des_font">
+          {{ i.photo_des }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -33,30 +33,29 @@
     top: 0px;
 }
 
-.page_1{
+
+.home{
     height: 90vh;
     background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513014633163&di=fe6ceab4f3bf3441efccd72d0e639964&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fd1160924ab18972b5bfa7cd1eecd7b899f510aec.jpg");
     background-position: center center;
     background-size: cover;
 }
-.page_11{
-    height: 40vh;    
+
+
+.foot{
+    //height: 20vh;
+    //overflow: auto;
+    background: rgba(15, 15, 15, 0.8);
 }
 
 
-
-.page_2{
+.page_1{
     //height: 80vh;
     //overflow: auto;
     //background: rgba(231, 141, 51, 0.5);
     background: rgba(163, 111, 59, 0.5);
 }
 
-.page_3{
-    //height: 20vh;
-    //overflow: auto;
-    background: rgba(15, 15, 15, 0.8);
-}
 
 .input1{
     height: 6vh;
@@ -123,6 +122,3 @@
     //background-color: #ffffff;
 }
 
-.des_font{
-    font-size: 0.6rem;
-}
