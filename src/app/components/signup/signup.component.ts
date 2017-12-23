@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input  } from '@angular/core';
 import { slideInOutAnimation } from '../../../animations/index';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
   islogin;
   resetmode: boolean = false;
   placeholder_passwd = "PASSWORD";
+  @Input() is_logout = '';
 
   @Output() closeevent = new EventEmitter();
 
@@ -60,6 +61,12 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {    
+  }
+
+  ngOnChanges(v){
+    if('is_logout' in v && v['is_logout']['currentValue'] == ''){
+      this.password = '';
+    }
   }
 
   login(user) {

@@ -37,8 +37,14 @@ export class SubscribeComponent implements OnInit {
       .subscribe(() => {
         this.getTotalCoin();
       });
+    
   }
 
+  ngOnChanges(v){
+    if('is_login' in v && v['is_login']['currentValue']){
+      this.getUserCoin();
+    }
+  }
 
   getUserCoin(){
     return this.userInfoService.getUserCoin().then((data) =>{

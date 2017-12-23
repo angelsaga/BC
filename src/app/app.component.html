@@ -31,21 +31,7 @@
                         class="header_hover_font div_margin" 
                         (click)="showSignUp()">
                             SIGN IN <a class="slash">/</a> UP     
-                    </div> 
-
-                    <div 
-                        fxLayout='row' fxLayout.lt-md='column' 
-                        fxLayoutAlign.gt-md="space-around center">                        
-                        <div fxFlex="40" class="header_hover_font div_margin_tool"   
-                        (click)="showSubscribe()">
-                                SUBSCRIBER
-                        </div>
-                        <div fxFlex="40"  class="header_hover_font div_margin_tool"  
-                        (click)="logout()">
-                            LOGOUT
                     </div>
-
-
 
                     <div  *ngIf="is_login" 
                         fxLayout='row' fxLayout.lt-md='column' 
@@ -61,18 +47,18 @@
                 </div>     
             </div>          
         </div>
-        <div fxLayout='row' [@tdCollapse]="! show_sub">
-                <mat-list>
+        <div fxLayout='row' [@tdCollapse]="! show_sub" >
+                <mat-list   class="div_margin_bottom">
                     <mat-divider></mat-divider>
                 </mat-list>
-                <app-subscribe [is_show]="show_sub" [is_login]="is_login"></app-subscribe> 
+                <app-subscribe  [is_show]="show_sub" [is_login]="is_login"></app-subscribe> 
             
         </div>
         <div [@tdCollapse]="! show">
-                <mat-list>
+                <mat-list   class="div_margin_bottom">
                     <mat-divider></mat-divider>
                 </mat-list>
-            <app-signup (closeevent)="isLogin($event)"></app-signup>
+            <app-signup  (closeevent)="isLogin($event)" [is_logout]="is_login"></app-signup>
         </div>
     </div>    
         
