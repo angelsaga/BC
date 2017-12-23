@@ -2,48 +2,76 @@
 <div class="page-home header_font">
         
     <div class="sticky-header header" [class.header-animate]="isAnimate">
-        <div>
+        <div fxLayout='row wrap'>
             <div fxFlex="10"></div>
-            <div fxFlex="20">
-                Trade Mark
+            <div fxFlex="20" fxLayoutAlign="center center">
+                <i class="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>
             </div>
-            <div fxFlex="40"></div>
+            <div fxFlex="40" fxFlex.lt-md="60"></div>
+            <div   fxLayoutAlign="center center">
+                <div
+                    [@tdRotate]="open_menu" (click)="showMenuonMD()" 
+                fxHide.gt-sm="true" fxShow.lt-sm="true" 
+                    fxLayoutAlign="end center">
+                    <ng-container *ngIf="!menu_on_md">    
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </ng-container>
+                    <ng-container *ngIf="menu_on_md">    
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </ng-container>
+                </div>
+            </div>
+            <div fxFlex.gt-md="5" fxFlex.lt-md="7"></div>
+            
+            <div [fxHide.lt-md]="open_menu"
+                    fxLayoutAlign.lt-md="start center"
+                    fxLayoutAlign.gt-md="start center">
+                    <div *ngIf="!is_login" 
+                        fxLayoutAlign.gt-md="center center"
+                        class="header_hover_font div_margin" 
+                        (click)="showSignUp()">
+                            SIGN IN <a class="slash">/</a> UP     
+                    </div> 
 
-                <ng-container *ngIf="!is_login">      
-                    <div class="header_hover_font" *ngIf="is_login == false">
-                        <button mat-button color="" 
-                            [ngClass]="{'mat-button-active' : show}" 
-                            (click)="showSignUp()">
-                            SIGN IN <a class="slash">/</a> UP
-                        </button>        
-                    </div>                    
-                </ng-container>
+                    <div 
+                        fxLayout='row' fxLayout.lt-md='column' 
+                        fxLayoutAlign.gt-md="space-around center">                        
+                        <div fxFlex="40" class="header_hover_font div_margin_tool"   
+                        (click)="showSubscribe()">
+                                SUBSCRIBER
+                        </div>
+                        <div fxFlex="40"  class="header_hover_font div_margin_tool"  
+                        (click)="logout()">
+                            LOGOUT
+                    </div>
 
-                <ng-container *ngIf="is_login">
-                    <div fxLayout='row'>
-                        <div fxHide.lt-md="true" >
-                                Hello, {{ is_login }} 
+
+
+                    <div  *ngIf="is_login" 
+                        fxLayout='row' fxLayout.lt-md='column' 
+                        fxLayoutAlign.gt-md="space-around center">                        
+                        <div fxFlex="40" class="header_hover_font div_margin_tool"   
+                        (click)="showSubscribe()">
+                                SUBSCRIBER
                         </div>
-                        <div>                   
-                            <button mat-button color="accent" 
-                                [ngClass]="{'mat-button-active' : show_sub}" 
-                                (click)="showSubscribe()">
-                                subscribe
-                            </button>
-                        </div>
-                        <div> 
-                            <button mat-button color="accent" 
-                                (click)="logout()">
-                            logout
-                            </button>
-                        </div>
-                    </div>            
-                </ng-container>
+                        <div fxFlex="40"  class="header_hover_font div_margin_tool"  
+                        (click)="logout()">
+                            LOGOUT
+                    </div>
+                </div>     
+            </div>          
         </div>
-        <div fxLayout='row' *ngIf="show_sub" [tdToggle]="! show_sub">
-            <app-subscribe [is_show]="show_sub" [is_login]="is_login"></app-subscribe>
+        <div fxLayout='row' [@tdCollapse]="! show_sub">
+                <mat-list>
+                    <mat-divider></mat-divider>
+                </mat-list>
+                <app-subscribe [is_show]="show_sub" [is_login]="is_login"></app-subscribe> 
+            
         </div>
-        <div *ngIf="show" [tdToggle]="! show">
+        <div [@tdCollapse]="! show">
+                <mat-list>
+                    <mat-divider></mat-divider>
+                </mat-list>
             <app-signup (closeevent)="isLogin($event)"></app-signup>
         </div>
     </div>    
@@ -62,6 +90,20 @@
         </div>
         <div fxFlex="10"></div>
     </div>
+    <div class="page_2">
+            <div fxFlex="10"></div>
+            <div fxFlex="80">
+                <app-page2></app-page2>
+            </div>
+            <div fxFlex="10"></div>
+        </div>
+    <div class="page_3">
+            <div fxFlex="10"></div>
+            <div fxFlex="80">
+                <app-page3></app-page3>
+            </div>
+            <div fxFlex="10"></div>
+        </div>
     <div  class="foot">
         <div fxFlex="10"></div>
         <div fxFlex="80">

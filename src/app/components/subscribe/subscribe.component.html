@@ -1,6 +1,12 @@
-<div  flex fxLayout="column">
-    <div [style.height.vh]="10" fxLayoutAlign="center center">
-        My Coin:&nbsp;&nbsp; <a class="my_coin"> {{ my_coin }} </a>
+<div fxLayout="column">
+    
+    <div  fxLayout="column" fxLayoutAlign="end center">
+            <div  [style.height.vh]="10" fxLayoutAlign="center center">
+                    Hello, {{ is_login }} 
+            </div>
+            <div fxLayoutAlign="center center">
+                    Your Coin:&nbsp;&nbsp; <a class="my_coin"> {{ my_coin }} </a>
+            </div>        
     </div> 
     <div fxLayoutAlign="center center">
         <form [formGroup]="subscribeForm">           

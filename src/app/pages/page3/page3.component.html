@@ -1,0 +1,24 @@
+
+<div [style.height.vh]="10" 
+  fxLayoutAlign="center center"
+  class="page_font page_font_bold">
+LOGO and TITLE
+</div>
+
+<div fxLayout='row wrap'  fxLayout.lt-md='column'>
+  <ng-container *ngFor="let i of photo_list">
+  <div fxFlex="33"  fxLayoutAlign="space-around center" >
+
+      <div fxLayout.lt-md="row" fxLayout.gt-md="column" 
+      fxLayoutAlign="center center" class="margin">
+        
+          <img [src]="i.photo_url" 
+            style='width:80%;' 
+            border="0" 
+            alt="Null" />
+        
+            <h5 class="margin">{{ i.photo_des }}</h5>
+      </div>
+  </div>
+  </ng-container>
+</div>

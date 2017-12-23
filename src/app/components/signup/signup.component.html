@@ -45,7 +45,7 @@
   </form>
 </div>
   <div *ngIf="! resetmode" [tdToggle]="resetmode">
-    <div fxLayoutAlign="center center">
+    <div fxLayoutAlign="center center"  [style.height.vh]="5">
       <button mat-button color="primary" [disabled]="loginForm.controls.username.invalid || loginForm.controls.password.invalid"
         (click)="login(loginForm.value)">
         LOGIN

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/font-awesome/css/font-awesome.min.css';
+//@import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
 
@@ -33,7 +33,6 @@ $theme: mat-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
 @include covalent-theme($theme, $typography); // $typography is an **optional** argument for the covalent-theme
 
-
 body {
     display: block;
     margin: 0px !important;
@@ -42,6 +41,7 @@ body {
     background-size: cover; */
 }
 
+$accent : mat-color($accent, default);
 
 .mat-input-placeholder {
     color: rgb(155, 151, 151);

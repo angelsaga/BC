@@ -1,27 +1,18 @@
-@import '~@angular/material/theming';
-@import '~@covalent/core/theming/all-theme';
-
-
-
-.pa1ge-home {
-    background-image: url("http://c.hiphotos.baidu.com/image/pic/item/500fd9f9d72a60593731e1d02134349b023bbad2.jpg");
-    background-position: center center;
-    height: 100%;
-    background-size: cover;
-} 
 
 .mat-button-active{
     background: rgba(224, 147, 46, 0.3);
 }
 
 .header-animate {
-    background: rgba(0, 0, 0, 0.5);
+    //background: rgba(0, 0, 0, 0.5);
+    background: white;
     padding: 2px 0 !important;
 }
 
 .header {
     transition: all 0.2s linear;
     padding: 20px 0;
+    background: white;
 }
 
 .sticky-header {
@@ -34,8 +25,25 @@
 }
 
 
+.header_font {
+    //color: #ffffff;
+    //letter-spacing: 0.01em;
+    //text-transform: uppercase;
+    //text-decoration: none;
+    font-size: 0.8rem
+}
+
+
+.div_margin{
+    margin:15px 0 15px 0;
+}
+.div_margin_tool{
+    margin:15px 15px 15px 15px;
+    flex-basis: auto !important;
+}
+
 .home{
-    height: 90vh;
+    height: 100vh;
     background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513014633163&di=fe6ceab4f3bf3441efccd72d0e639964&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fd1160924ab18972b5bfa7cd1eecd7b899f510aec.jpg");
     background-position: center center;
     background-size: cover;
@@ -45,15 +53,37 @@
 .foot{
     //height: 20vh;
     //overflow: auto;
-    background: rgba(15, 15, 15, 0.8);
+    //background: rgba(15, 15, 15, 0.8);
+    background: rgba(0, 0, 0, 1);
 }
 
 
 .page_1{
+    height: 80vh;
+    //overflow: auto;
+    //background: rgba(231, 141, 51, 0.5);
+    //background: rgba(163, 111, 59, 0.5);
+    //background: white;
+}
+
+.page_2{
     //height: 80vh;
     //overflow: auto;
     //background: rgba(231, 141, 51, 0.5);
-    background: rgba(163, 111, 59, 0.5);
+    //background: rgba(163, 111, 59, 0.5);
+    //background: black;
+    height: 60vh;
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1514038305057&di=1c5451775b86a5048b50af2ae7c4289f&imgtype=0&src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2F05%2F1e%2F65%2F051e65851a5a0c08c6421c04426f1f5e.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.page_3{
+    //height: 80vh;
+    //overflow: auto;
+    //background: rgba(231, 141, 51, 0.5);
+    //background: rgba(163, 111, 59, 0.5);
+    //background: white;
 }
 
 
@@ -63,17 +93,12 @@
 }
 
 
-.header_font {
-    color: #ffffff;
-    letter-spacing: 0.01em;
-    //text-transform: uppercase;
-    //text-decoration: none;
-}
 
 
 
 .header_hover_font:hover {
     color: #F88A2F;
+    cursor: pointer;
 }
 
 

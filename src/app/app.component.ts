@@ -1,14 +1,20 @@
 import { Component, HostListener } from '@angular/core';
-
-
 import {FormControl, Validators} from '@angular/forms';
 import { JwtHelper } from "angular2-jwt";
 import { UserInfoService } from "../providers/UserInfoService";
 import { Storage } from "@ionic/storage";
+
+import { TdCollapseAnimation, TdRotateAnimation } from '@covalent/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']  
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    TdCollapseAnimation(), 
+    TdRotateAnimation(),
+    TdCollapseAnimation({ anchor: 'tdCollapseLong', duration: 750}), 
+  ],
 })
 
 
@@ -19,9 +25,8 @@ export class AppComponent {
   show: boolean = false;
   show_login: boolean = false;
   show_sub: boolean = false;
-  phone = '';
-  credid = '';
-  passwd = '';
+  menu_on_md: boolean = false;
+  open_menu: boolean = true;
   is_login = '';
  
 
@@ -55,8 +60,6 @@ export class AppComponent {
         }        
       })
     });
-    
-
   }
 
   showSignUp(e){
@@ -89,6 +92,7 @@ export class AppComponent {
     this.show_sub = true;
   }
 
+
   logout(){
     this.userInfoService.logout();
     this.is_login = '';
@@ -97,6 +101,15 @@ export class AppComponent {
 
   showSubscribe(){
     this.show_sub =! this.show_sub;
+  }
+
+  showMenuonMD(){
+    this.menu_on_md = ! this.menu_on_md;
+    if(this.menu_on_md){
+      this.open_menu = false;
+    }else{
+      this.open_menu = true;
+    }
   }
 
   

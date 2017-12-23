@@ -1,3 +1,45 @@
+@import '../../../styles.scss';
+
 .des_font{
     font-size: 0.6rem;
 }
+
+.page_font{
+    color : rgba(54, 53, 54, 0.911);
+}
+
+.page_font_bold{
+    //font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+
+.circle{
+    //border-radius: 50%;   
+    border-width: 1px;
+    border-style: solid;
+    border-color: #eee !important;   
+    width: 8rem;
+    height: 8rem;
+}
+
+.clip-each {
+    display: block;
+    position: relative;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    -webkit-clip-path: url("#hexagon-clip");
+    clip-path: url("#hexagon-clip");
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    margin: 0 auto;
+  }
+  
+  .clip-each:hover {
+    background: $accent;
+    -webkit-transition: all 0.25s ease-in;
+    transition: all 0.25s ease-in;
+  }
+
+ 

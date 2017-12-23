@@ -60,6 +60,8 @@ import { Page1Component } from './pages/page1/page1.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FootComponent } from './pages/foot/foot.component';
 import { NavComponent } from './pages/nav/nav.component';
+import { Page2Component } from './pages/page2/page2.component';
+import { Page3Component } from './pages/page3/page3.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { NavComponent } from './pages/nav/nav.component';
     Page1Component,
     HomeComponent,
     FootComponent,
-    NavComponent
+    NavComponent,
+    Page2Component,
+    Page3Component
   ],
   imports: [
     BrowserModule,

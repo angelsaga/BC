@@ -1,4 +1,4 @@
-<div>
+<div class="page_font">
     <div [style.height.vh]="40"></div>
     <div fxLayoutAlign="center center" >
         <i class="fa fa-balance-scale fa-5x"></i>
@@ -6,13 +6,18 @@
     <div fxLayoutAlign="center center">LOGO and TITLE</div>
     <div  fxLayout.lt-md="column">
         <div fxFlex="30"></div>
-        <div fxFlex="20" fxLayoutAlign="center center">RESOURCE1</div>
-        <div fxFlex="20" fxLayoutAlign="center center">RESOURCE2</div>
+        <div fxFlex="20" fxLayoutAlign="center center">
+                <i class="fa fa-github fa-5x" aria-hidden="true"></i>
+        </div>
+        <div fxFlex="20" fxLayoutAlign="center center">
+                <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
+        </div>
     </div>
     <div [style.height.vh]="10"></div>
     <div  flex fxLayout="row">
         <div fxFlex="40"></div>
-        <div fxFlex="20" fxLayoutAlign="center center" fxLayoutWrap>
+        <div fxFlex="20" fxLayoutAlign="center center" 
+            fxLayoutWrap>
                 <mat-progress-bar
                 class=""
                 color="accent"
