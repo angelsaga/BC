@@ -1,10 +1,10 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ElementRef, ViewChild } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { JwtHelper } from "angular2-jwt";
 import { UserInfoService } from "../providers/UserInfoService";
 import { Storage } from "@ionic/storage";
-
 import { TdCollapseAnimation, TdRotateAnimation } from '@covalent/core';
+import { PageScrollConfig } from 'ngx-page-scroll';
 
 @Component({
   selector: 'app-root',
@@ -40,19 +40,63 @@ export class AppComponent {
   @HostListener('window:scroll', ['$event'])
   public onWindowScroll(event: Event): void {
     this.setAnimate();
+    this.detectPagePosition();
+    //console.log(this.el_home);
+    //console.log(this.el_home.nativeElement.getBoundingClientRect().top);
   }
+
+  @ViewChild('home') 
+  private el_home : ElementRef;
+  @ViewChild('page_1') 
+  private el_page_1 : ElementRef; 
+  @ViewChild('page_2') 
+  private el_page_2 : ElementRef; 
+  @ViewChild('page_2') 
+  private el_page_3 : ElementRef; 
+  @ViewChild('foot') 
+  private el_foot : ElementRef; 
+  detectPagePosition(){
+    let ele_list = [
+      this.el_home, 
+      this.el_page_1, 
+      this.el_page_2,
+      this.el_page_3,
+      this.el_foot];
+    
+    let scroll_to_page_id;
+    let scroll_to_page_i;
+    for(let i in ele_list){
+      let ele = ele_list[i];
+      let offsetTop = ele.nativeElement.getBoundingClientRect().top
+      let id = ele.nativeElement.id;  
+      if(offsetTop > -50){        
+        scroll_to_page_i = i;
+        scroll_to_page_id = id;        
+        break;
+      }
+    }
+    for(let j in ele_list){
+      let ele = ele_list[j];
+      if(j != scroll_to_page_i){
+        ele['loaded'] = false;
+      }else{
+        ele['loaded'] = true;
+      }
+    }    
+  }
+
 
   constructor(    
     private userInfoService: UserInfoService,
     private storage: Storage,
     private jwtHelper: JwtHelper,
+    private elementRef: ElementRef
   ){
-    
-
-    
+    PageScrollConfig.defaultDuration = 300;
   }
 
   ngOnInit() {
+    this.detectPagePosition();
     this.storage.get('token').then(token => {
       this.userInfoService.authSuccess(token).then((data) => {
         if(typeof(data) == 'string'){
@@ -61,6 +105,10 @@ export class AppComponent {
       })
     });
   }
+
+  
+
+  
 
   showSignUp(e){
     this.show = ! this.show;
@@ -110,8 +158,9 @@ export class AppComponent {
     }else{
       this.open_menu = true;
     }
+    this.show_sub = this.show_sub ? false : false;
+    this.show = this.show ? false : false;
   }
-
   
 
 

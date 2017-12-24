@@ -13,6 +13,8 @@
     transition: all 0.2s linear;
     padding: 20px 0;
     background: white;
+    overflow: auto;
+    max-height: 100vh;
 }
 
 .sticky-header {
@@ -103,7 +105,9 @@
     color: #F88A2F;
     cursor: pointer;
 }
-
+.page_loaded {
+    color: #F88A2F;
+}
 
 
 .vertical-align-content > *

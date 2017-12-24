@@ -61,6 +61,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FootComponent } from './pages/foot/foot.component';
 import { Page2Component } from './pages/page2/page2.component';
 import { Page3Component } from './pages/page3/page3.component';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 @NgModule({
   declarations: [
@@ -77,9 +78,8 @@ import { Page3Component } from './pages/page3/page3.component';
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    //InputTextModule, ButtonModule, DataTableModule, DialogModule,
+    NgxPageScrollModule,
 
-    //MatInputModule,MatRadioModule,MatButtonModule,MatIconModule,
     CovalentCommonModule,
     CovalentDialogsModule,
     CovalentChipsModule,

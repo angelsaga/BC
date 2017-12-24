@@ -1,5 +1,5 @@
 
-<div class="page-home header_font">
+<div class="page-home header_font" (scroll)="onScroll($event)">
         
     <div class="sticky-header header" [class.header-animate]="isAnimate">
         <div fxLayout='row wrap'>
@@ -7,7 +7,7 @@
             <div fxFlex="20" fxLayoutAlign="center center">
                 <i class="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>
             </div>
-            <div fxFlex="40" fxFlex.lt-md="60"></div>
+            <div fxFlex="20" fxFlex.lt-md="60"></div>
             <div   fxLayoutAlign="center center">
                 <div
                     [@tdRotate]="open_menu" (click)="showMenuonMD()" 
@@ -26,24 +26,59 @@
             <div [fxHide.lt-md]="open_menu"
                     fxLayoutAlign.lt-md="start center"
                     fxLayoutAlign.gt-md="start center">
-                    <div *ngIf="!is_login" 
-                        fxLayoutAlign.gt-md="center center"
-                        class="header_hover_font div_margin" 
-                        (click)="showSignUp()">
-                            SIGN IN <a class="slash">/</a> UP     
-                    </div>
 
-                    <div  *ngIf="is_login" 
-                        fxLayout='row' fxLayout.lt-md='column' 
-                        fxLayoutAlign.gt-md="space-around center">                        
-                        <div fxFlex="40" class="header_hover_font div_margin_tool"   
-                        (click)="showSubscribe()">
-                                SUBSCRIBER
+
+                    <div fxLayout='row' fxLayout.lt-md='column' 
+                        fxLayoutAlign.gt-md="space-around center">
+                        <div fxFlex="20" pageScroll href="#home"
+                            [ngClass]="{'page_loaded' : el_home.loaded}"
+                            class="header_hover_font div_margin_tool">
+                            HOME
                         </div>
-                        <div fxFlex="40"  class="header_hover_font div_margin_tool"  
-                        (click)="logout()">
-                            LOGOUT
+                        <div fxFlex="20" pageScroll href="#page_1"
+                            [ngClass]="{'page_loaded' : el_page_1.loaded}"
+                            class="header_hover_font div_margin_tool">
+                            PAGE1
+                        </div>
+                        <div fxFlex="20" pageScroll href="#page_2"
+                            [ngClass]="{'page_loaded' : el_page_2.loaded}"
+                            class="header_hover_font div_margin_tool">
+                            PAGE2
+                        </div>
+                        <div fxFlex="20" pageScroll href="#page_3"
+                            [ngClass]="{'page_loaded' : el_page_3.loaded}"
+                            class="header_hover_font div_margin_tool">
+                            PAGE3
+                        </div>
+                        <div fxFlex="20" pageScroll href="#foot"
+                            [ngClass]="{'page_loaded' : el_foot.loaded}"
+                            class="header_hover_font div_margin_tool">
+                            FOOT
+                        </div>
+
+                        <div *ngIf="!is_login" 
+                            fxLayoutAlign.gt-md="center center"
+                            [ngClass]="{'page_loaded' : show}"
+                            class="header_hover_font div_margin_tool" 
+                            (click)="showSignUp()">
+                                SIGN IN <a class="slash">/</a> UP     
+                        </div>
+
+                        <div  *ngIf="is_login" 
+                            fxLayout='row' fxLayout.lt-md='column' 
+                            fxLayoutAlign.gt-md="space-around center">                        
+                            <div fxFlex="40"
+                                [ngClass]="{'page_loaded' : show_sub}"
+                                class="header_hover_font div_margin_tool"   
+                            (click)="showSubscribe()">
+                                    SUBSCRIBER
+                            </div>
+                            <div fxFlex="40"  class="header_hover_font div_margin_tool"  
+                            (click)="logout()">
+                                LOGOUT
+                        </div>
                     </div>
+                    
                 </div>     
             </div>          
         </div>
@@ -62,35 +97,35 @@
         </div>
     </div>    
         
-    <div class="home">
+    <div class="home" id="home" #home>
         <div fxFlex="10"></div>
         <div fxFlex="80">
             <app-home></app-home>    
         </div>
         <div fxFlex="10"></div>
     </div>
-    <div class="page_1">
+    <div class="page_1"  id="page_1" #page_1>
         <div fxFlex="10"></div>
         <div fxFlex="80">
             <app-page1></app-page1>
         </div>
         <div fxFlex="10"></div>
     </div>
-    <div class="page_2">
+    <div class="page_2" id="page_2" #page_2>
             <div fxFlex="10"></div>
             <div fxFlex="80">
                 <app-page2></app-page2>
             </div>
             <div fxFlex="10"></div>
         </div>
-    <div class="page_3">
+    <div class="page_3"  id="page_3" #page_3>
             <div fxFlex="10"></div>
             <div fxFlex="80">
                 <app-page3></app-page3>
             </div>
             <div fxFlex="10"></div>
         </div>
-    <div  class="foot">
+    <div  class="foot" id="foot" #foot>
         <div fxFlex="10"></div>
         <div fxFlex="80">
             <app-foot></app-foot>
