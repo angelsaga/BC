@@ -46,15 +46,15 @@ export class AppComponent {
   }
 
   @ViewChild('home') 
-  private el_home : ElementRef;
+  public el_home : ElementRef;
   @ViewChild('page_1') 
-  private el_page_1 : ElementRef; 
+  public el_page_1 : ElementRef; 
   @ViewChild('page_2') 
-  private el_page_2 : ElementRef; 
+  public el_page_2 : ElementRef; 
   @ViewChild('page_2') 
-  private el_page_3 : ElementRef; 
+  public el_page_3 : ElementRef; 
   @ViewChild('foot') 
-  private el_foot : ElementRef; 
+  public el_foot : ElementRef; 
   detectPagePosition(){
     let ele_list = [
       this.el_home, 

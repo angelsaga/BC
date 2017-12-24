@@ -1,5 +1,5 @@
 
-<div class="page-home header_font" (scroll)="onScroll($event)">
+<div class="page-home header_font">
         
     <div class="sticky-header header" [class.header-animate]="isAnimate">
         <div fxLayout='row wrap'>
@@ -31,27 +31,27 @@
                     <div fxLayout='row' fxLayout.lt-md='column' 
                         fxLayoutAlign.gt-md="space-around center">
                         <div fxFlex="20" pageScroll href="#home"
-                            [ngClass]="{'page_loaded' : el_home.loaded}"
+                            [ngClass]="{'page_loaded' : el_home['loaded']}"
                             class="header_hover_font div_margin_tool">
                             HOME
                         </div>
                         <div fxFlex="20" pageScroll href="#page_1"
-                            [ngClass]="{'page_loaded' : el_page_1.loaded}"
+                            [ngClass]="{'page_loaded' : el_page_1['loaded']}"
                             class="header_hover_font div_margin_tool">
                             PAGE1
                         </div>
                         <div fxFlex="20" pageScroll href="#page_2"
-                            [ngClass]="{'page_loaded' : el_page_2.loaded}"
+                            [ngClass]="{'page_loaded' : el_page_2['loaded']}"
                             class="header_hover_font div_margin_tool">
                             PAGE2
                         </div>
                         <div fxFlex="20" pageScroll href="#page_3"
-                            [ngClass]="{'page_loaded' : el_page_3.loaded}"
+                            [ngClass]="{'page_loaded' : el_page_3['loaded']}"
                             class="header_hover_font div_margin_tool">
                             PAGE3
                         </div>
                         <div fxFlex="20" pageScroll href="#foot"
-                            [ngClass]="{'page_loaded' : el_foot.loaded}"
+                            [ngClass]="{'page_loaded' : el_foot['loaded']}"
                             class="header_hover_font div_margin_tool">
                             FOOT
                         </div>
