@@ -5,13 +5,31 @@
 var distserver = require("../dist/server");
 var debug = require("debug")("express:server");
 var http = require("http");
+var https = require('https');
+var fs = require('fs');
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '8888');
 var app = distserver.Server.bootstrap().app;
 app.set('port', port);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+
+
+if(process.env.SSLPORT && process.env.SSLKEY && process.env.SSLCERT){
+  var privateKey_file = process.env.SSLKEY;
+  var certificate_file = process.env.SSLCERT;
+  var privateKey  = fs.readFileSync(privateKey_file , 'utf8');
+  var certificate = fs.readFileSync(certificate_file, 'utf8');
+  var credentials = {key: privateKey, cert: certificate};
+  
+  var httpsServer = https.createServer(credentials, app);
+  httpsServer.listen(process.env.SSLPORT);
+  httpsServer.on('error', onError);
+  httpsServer.on('listening', onListening);
+}
+
+
 
 
 var server = http.createServer(app);
